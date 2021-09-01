@@ -13,7 +13,7 @@
             font-size: 20px;
         }
     </style>
-    <title>Spiromaniac</title>
+    <title>Superformula</title>
 </head>
 
 <body onload="main();">
@@ -22,52 +22,62 @@
         <table id="table">
             <tr>
                 <td>
-                    <label>radius1</label>
-                    <input tabindex="1" type="number" id="radius1"
-                           onchange="(function () { spiro.radius1 = Number.parseInt(value); })();">
+                    <label>n1</label>
+                    <input tabindex="1" type="number" id="n1"
+                           onchange="(function () { superf.n1 = Number.parseInt(value); })();">
+                </td>
+                <td>
+                    <label>a</label>
+                    <input tabindex="4" type="number" id="a"
+                           onchange="(function () { superf.a = Number.parseInt(value); })();">
                 </td>
                 <td>
                     <div>
                         <label>speed</label>
                         <input tabindex="-1" type="range" min="0" max="50" value="20" class="slider" id="speed"
-                            oninput="(function(){spiro.speed = value / 200;})();">
+                            oninput="(function(){superf.speed = value / 200;})();">
                     </div>
                 </td>
                 <td>
                     <div>
                         <label>rotate</label>
                         <input tabindex="-1" type="range" min="0" max="20" value="10" class="slider" id="rotate"
-                            oninput="(function(){spiro.rotateSpeed = value / 100;})();">
+                            oninput="(function(){superf.rotateSpeed = value / 100;})();">
                     </div>
                 </td>
                 <td>
                     <div>
                         <label>maxoffset</label>
                         <input tabindex="-1" type="range" min="0" max="10" value="2" class="slider" id="maxoffset"
-                            oninput="(function(){ spiro.maxOffset = value; })();">
+                            oninput="(function(){ superf.maxOffset = value; })();">
                     </div>
                 </td>
                 <td>
                     <label>color</label>
-                    <input tabindex="-1" type="checkbox" id="inColor" checked
+                    <input tabindex="-1" type="checkbox" id="inColor"
                     onclick="(function(){ colorMgr.inColor = !colorMgr.inColor; })();">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>radius2</label>
-                    <input tabindex="2" type="number" id="radius2"
-                       onchange="(function () { spiro.radius2 = Number.parseInt(value); })();">
+                    <label>n2</label>
+                    <input tabindex="2" type="number" id="n2"
+                       onchange="(function () { superf.n2 = Number.parseInt(value); })();">
+                </td>
+                <td>
+                    <label>b</label>
+                    <input tabindex="5" type="number" id="b"
+                           onchange="(function () { superf.b = Number.parseInt(value); })();">
                 </td>
                 <td>
                     <label>loops</label>
                     <input tabindex="-1" type="range" min="1" max="100" value="10" class="slider" id="loops"
-                        oninput="(function(){spiro.loops = value;})();">
+                        oninput="(function(){superf.loops = value;})();">
                 </td>
                 <td>
                     <label>width</label>
                     <input tabindex="-1" type="range" min="1" max="20" value="3" class="slider" id="width"
-                        oninput="(function(){spiro.width = value;})();">
+                        oninput="(function(){superf.width = value;})();">
                 </td>
                 <td>
                     <button tabindex="-1" onclick="randomize()">randomize</button>
@@ -75,19 +85,24 @@
             </tr>
             <tr>
                 <td>
-                    <label>radius3</label>
-                    <input tabindex="3" type="number" id="radius3"
-                           onchange="(function () { spiro.radius3 = Number.parseInt(value); })();">
+                    <label>n3</label>
+                    <input tabindex="3" type="number" id="n3"
+                           onchange="(function () { superf.n3 = Number.parseInt(value); })();">
+                </td>
+                <td>
+                    <label>m</label>
+                    <input tabindex="6" type="number" id="m"
+                           onchange="(function () { superf.m = Number.parseInt(value); })();">
                 </td>
                 <td>
                     <label>scale</label>
-                    <input tabindex="-1" type="range" min="1" max="50" value="40" class="slider" id="scale"
-                        oninput="(function(){ spiro.scale = value; })();">
+                    <input tabindex="-1" type="range" min="1" max="400" value="40" class="slider" id="scale"
+                        oninput="(function(){ superf.scale = value; })();">
                 </td>
                 <td>
                     <label>blur</label>
                         <input tabindex="-1" type="range" min="10" max="100" value="80" class="slider" id="blur"
-                            oninput="(function(){ spiro.blur = 1 - value / 100; })();">
+                            oninput="(function(){ superf.blur = 1 - value / 100; })();">
                 </td>
                 <td>
                     <button tabindex="-1" id="pause" onclick="pause()">pause</button>
@@ -96,16 +111,9 @@
         </table>
         <canvas id="canvas"></canvas>
         <div id="msg"></div>
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Spiromaniac</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/marksilverman/spiromaniac" property="cc:attributionName" rel="cc:attributionURL">Mark Silverman</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">superformula</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/marksilverman/superformula" property="cc:attributionName" rel="cc:attributionURL">Mark Silverman</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     </p>
     <script>
-        // -9, -6, -1
-        // 6, -2, 8
-        // -7, -4, -1
-        // 7, -2, -6
-        // 5, 6, -1
-        // -7, -4, 2
-        // 8, 6, 1
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         var ww = window.innerWidth * .5;
@@ -116,7 +124,7 @@
 
         var colorMgr =
         {
-            radd: 1, gadd: -1, badd: 1, inColor: true, fgColor: '', bgColor: 'rgba(255, 255, 255,',
+            radd: 1, gadd: -1, badd: 1, inColor: false, fgColor: '', bgColor: 'rgba(255, 255, 255,',
             rando: function () { return Math.floor(Math.random() * 100); },
             next: function () {
                 if (!this.inColor)
@@ -137,13 +145,10 @@
                 this.fgColor = 'rgba(' + this.red + ',' + this.green + ',' + this.blue + ')';
             }
         }
-        var spiro = {
-            radius1: -7,
-            radius2: -4,
-            radius3: -1,
-            scale: 40, speed: 0.04, blur: 0.2, width: 3, offset: 0.0, maxOffset: 2,
+        var superf = {
+            scale: 40, speed: 0.04, blur: 0.2, width: 3, maxOffset: 2,
             rotateSpeed: 0.01, rotateAngle: 0.0, loops: 10, x: -1, y: -1,
-
+            a: 4, b: 4, m: 3, n1: 4.5, n2: 10, n3: 10,
             draw: function () {
                 ctx.save()
                 ctx.translate(ww / 2, hh / 2);
@@ -151,33 +156,22 @@
                 ctx.beginPath();
 
                 var tooBig = false;
-                for (let angle1 = 0.0; angle1 < this.loops * 2 * Math.PI; angle1 += 0.005) {
-                    // 1st wheel
-                    this.x = (this.radius1 - this.radius2 + this.radius3) * Math.cos(angle1);
-                    this.y = (this.radius1 - this.radius2 + this.radius3) * Math.sin(angle1);
-
-                    // 2nd wheel
-                    var angle2 = angle1 * (this.radius1 - this.radius2) / this.radius2;
-                    this.x += Math.cos(angle2);
-                    this.y -= Math.sin(angle2);
-
-                    // 3rd wheel
-                    var angle3 = angle2 * (this.radius1 - this.radius2 + this.radius3) / this.radius3;
-                    this.x += this.offset * Math.cos(angle3);
-                    this.y -= this.offset * Math.sin(angle3);
-
-                    this.x *= this.scale;
-                    this.y *= this.scale;
+                for (let angle = 0.0; angle < this.loops * 2 * Math.PI; angle += 0.05)
+                {
+                    left = Math.pow(Math.abs(Math.cos(this.m * angle / 4) / this.a), this.n2);
+                    right = Math.pow(Math.abs(Math.sin(this.m * angle / 4) / this.b), this.n3);
+                    radius = Math.pow(left + right, -1 / this.n1)
+                    this.x = this.scale * radius * Math.cos(angle);
+                    this.y = this.scale * radius * Math.sin(angle);
 
                     if (this.y > hh / 2) tooBig = true;
-                    if (angle1 == 0)
+                    if (angle == 0)
                         ctx.moveTo(this.x, this.y);
                     else
                         ctx.lineTo(this.x, this.y);
                 }
-                if (tooBig)
-                    this.scale -= 0.25;
-                document.getElementById("scale").value = this.scale;
+                // if (tooBig)
+                //    this.scale -= 0.25;
                 ctx.lineWidth = this.width;
 
                 ctx.strokeStyle = colorMgr.fgColor;
@@ -190,17 +184,18 @@
         function msg(info) { document.getElementById("msg").innerHTML = info; }
 
         function randomize() {
-            spiro.radius1 = spiro.radius2 = spiro.radius3 = 0;
-            while (spiro.radius1 == 0)
-                spiro.radius1 = Math.round(10 - Math.random() * 20);
-            while (spiro.radius2 == 0 || spiro.radius2 == radius1)
-                spiro.radius2 = Math.round(10 - Math.random() * 20);
-            while (spiro.radius3 == 0 || spiro.radius3 == spiro.radius2 || spiro.radius3 == spiro.radius1)
-                spiro.radius3 = Math.round(10 - Math.random() * 20);
-            document.getElementById("radius1").value = spiro.radius1;
-            document.getElementById("radius2").value = spiro.radius2;
-            document.getElementById("radius3").value = spiro.radius3;
-            document.getElementById("scale").value = spiro.scale = 20;
+            superf.n1 = Math.round(10 - Math.random() * 20);
+            superf.n2 = Math.round(10 - Math.random() * 20);
+            superf.n3 = Math.round(10 - Math.random() * 20);
+            superf.a = Math.round(10 - Math.random() * 20);
+            superf.b = Math.round(10 - Math.random() * 20);
+            superf.m = Math.round(10 - Math.random() * 20);
+            document.getElementById("n1").value = superf.n1;
+            document.getElementById("n2").value = superf.n2;
+            document.getElementById("n3").value = superf.n3;
+            document.getElementById("a").value = superf.a;
+            document.getElementById("b").value = superf.b;
+            document.getElementById("m").value = superf.m;
             if (colorMgr.inColor)
                 colorMgr.bgColor = 'rgba(' + rando1() + ',' + rando1() + ',' + rando1() + ',';
             else
@@ -223,14 +218,17 @@
         }
 
         function main() {
-            document.getElementById("radius1").value = Number.parseFloat(spiro.radius1).toPrecision(2);
-            document.getElementById("radius2").value = Number.parseFloat(spiro.radius2).toPrecision(2);
-            document.getElementById("radius3").value = Number.parseFloat(spiro.radius3).toPrecision(2);
-            document.getElementById("speed").value = 200 * spiro.speed;
-            document.getElementById("scale").value = spiro.scale;
-            document.getElementById("rotate").value = 100 * spiro.rotateSpeed;
-            document.getElementById("width").value = spiro.width;
-            document.getElementById("blur").value = 100 - 100 * spiro.blur;
+            document.getElementById("a").value = Number.parseFloat(superf.a).toPrecision(2);
+            document.getElementById("b").value = Number.parseFloat(superf.b).toPrecision(2);
+            document.getElementById("m").value = Number.parseFloat(superf.m).toPrecision(2);
+            document.getElementById("n1").value = Number.parseFloat(superf.n1).toPrecision(2);
+            document.getElementById("n2").value = Number.parseFloat(superf.n2).toPrecision(2);
+            document.getElementById("n3").value = Number.parseFloat(superf.n3).toPrecision(2);
+            document.getElementById("speed").value = 200 * superf.speed;
+            document.getElementById("scale").value = superf.scale;
+            document.getElementById("rotate").value = 100 * superf.rotateSpeed;
+            document.getElementById("width").value = superf.width;
+            document.getElementById("blur").value = 100 - 100 * superf.blur;
 
             colorMgr.red = colorMgr.rando();
             colorMgr.green = colorMgr.rando();
@@ -240,15 +238,14 @@
 
         function draw() {
             colorMgr.next();
-            ctx.fillStyle = colorMgr.bgColor + spiro.blur + ')';
+            ctx.fillStyle = colorMgr.bgColor + superf.blur + ')';
             ctx.fillRect(0, 0, ww, hh);
-
-            spiro.draw();
-            if (Math.abs(spiro.offset) > spiro.maxOffset)
-                spiro.speed = spiro.speed * -1;
-            spiro.offset += spiro.speed;
-            spiro.rotateAngle += spiro.rotateSpeed;
-
+            superf.draw();
+            if (Math.abs(superf.a) > superf.maxOffset)
+                superf.speed = superf.speed * -1;
+//            superf.a += superf.speed;
+//            document.getElementById("a").value = superf.a;
+            superf.rotateAngle += superf.rotateSpeed;
             raf = window.requestAnimationFrame(draw);
         }
 
